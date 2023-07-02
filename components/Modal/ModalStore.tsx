@@ -45,13 +45,20 @@ const ModalStore = () => {
                 control={form.control}
                 name="name"
                 render={({ field }) => (
+
+
+
                   <FormItem>
                     <FormLabel>Nmae</FormLabel>
                     <FormControl>
-                      <Input placeholder="e-com" {...field} />
+                      <Input placeholder="eaxample  e-com store" {...field} />
                     </FormControl>
                     <FormMessage/>
                   </FormItem>
+
+
+
+
                 )}
               />
 
