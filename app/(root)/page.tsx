@@ -1,13 +1,25 @@
-import { Button } from '@/components/ui/button'
-import { UserButton } from '@clerk/nextjs'
-import Image from 'next/image'
+"use client";
+
+import { useModalStore } from "@/hooks/modal-store";
+import Modal from "../../components/ui/Modal";
+import { useEffect } from "react";
 
 export default function SetUpPage() {
+
+    const onOpen=useModalStore((state)=>state.onOpen);
+    const isOpen=useModalStore((state)=>state.isOpen);
+    useEffect(()=>{
+        if(!isOpen){
+            onOpen();
+        }
+
+    },[isOpen,onOpen]);
   return (
-    <main className="flex flex-col items-center justify-between min-h-screen p-24">
-     <div>
-      <UserButton/>
-     </div>
+    <main className="flex">
+    
+      <div className="flex items-center justify-center">
+        root page
+      </div>
     </main>
-  )
+  );
 }
