@@ -5,7 +5,9 @@ import Modal from "../ui/Modal";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form,FormField } from "../ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const ModalStore = () => {
   const storemodal = useModalStore();
@@ -38,11 +40,25 @@ const ModalStore = () => {
       <div>
         <div className="py-2 pb-4 space-y-4 ">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit{Onsubmit}}>
-              <FormField>
+            <form onSubmit={form.handleSubmit(Onsubmit)}>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nmae</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e-com" {...field} />
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
 
-              </FormField>
-
+              <div className=" pt-6 space-x-2 flex items-center justify-end w-full">
+                <Button variant="outline" onClick={storemodal.onClose}>cancel</Button>
+                <Button type="submit">continue</Button>
+              </div>
             </form>
           </Form>
         </div>
