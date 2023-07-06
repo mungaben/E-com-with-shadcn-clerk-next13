@@ -50,6 +50,7 @@ const ModalStore = () => {
       
       
     }finally{
+      throw new Error("error")
       setloading(false);
     }
   };
